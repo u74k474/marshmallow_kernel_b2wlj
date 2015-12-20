@@ -226,19 +226,6 @@ struct fbc_panel_info {
 	u32 lossy_mode_idx;
 };
 
-struct htc_backlight1_table {
-	int size;
-	u16 *brt_data;
-	u16 *bl_data;
-};
-
-struct htc_backlight2_table {
-	int size;
-	int scale;
-	int max_nits;
-	u16 *data;
-};
-
 struct mdss_panel_info {
 	u32 xres;
 	u32 yres;
@@ -299,9 +286,9 @@ struct mdss_panel_info {
 	uint32_t pcc_g;
 	uint32_t pcc_b;
 
-	struct htc_backlight1_table brt_bl_table;
-	struct htc_backlight2_table nits_bl_table;
-
+	int max_brt;
+	int act_max_brt;
+	bool act_brt;
 	bool even_roi;
 };
 
